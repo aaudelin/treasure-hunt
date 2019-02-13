@@ -33,7 +33,7 @@ public class CoordinatePosition extends APosition {
 	int yCoordinate = 0;
 	
 	@Override
-	public APosition computePositionFromOrder(AOrder order) throws PositionException {
+	public CoordinatePosition computePositionFromOrder(AOrder order) throws PositionException {
 		if (order instanceof RotateOrder) {
 			EAvailableDirection direction = this.rotateFromAction(order.getAction());
 			return PositionFactory.createCoordinatePosition(this.xCoordinate, this.yCoordinate,
