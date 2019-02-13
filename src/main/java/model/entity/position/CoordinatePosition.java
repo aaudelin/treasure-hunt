@@ -14,10 +14,10 @@ import model.entity.order.MoveOrder;
 import model.entity.order.RotateOrder;
 
 /**
- * Sensor plugged to a mower that indicates and computes the position according
+ * Sensor that indicates and computes the position according
  * to the field and the orders
  * 
- * Works with coordinate field
+ * Works with coordinate objects
  * 
  * @author aaudelin
  *
@@ -59,6 +59,7 @@ public class CoordinatePosition extends APosition {
 				&& this.getYCoordinate() == pCooPosition.getYCoordinate();
 	}
 	
+	@Override
 	public boolean isIncludedInField(AField field) throws PositionException {
 		if (!(field instanceof CoordinateField)) {
 			throw new PositionException(
@@ -97,10 +98,10 @@ public class CoordinatePosition extends APosition {
 	private int moveYFromAction() {
 		EAvailableDirection direction = this.getDirection();
 		if (EAvailableDirection.DIRECTION_NORTH.equals(direction)) {
-			return this.yCoordinate + 1;
+			return this.yCoordinate - 1;
 		}
 		if (EAvailableDirection.DIRECTION_SOUTH.equals(direction)) {
-			return this.yCoordinate - 1;
+			return this.yCoordinate + 1;
 		}
 		return this.yCoordinate;
 

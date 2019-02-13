@@ -1,6 +1,7 @@
 package model.entity.element;
 
 import exception.EntityException;
+import model.common.EAvailableEntityTypes;
 import model.entity.field.AField;
 import model.entity.order.AOrder;
 import model.entity.position.APosition;
@@ -16,8 +17,11 @@ public abstract class AFieldElement {
 	
 	boolean canMove = false;
 	
+	EAvailableEntityTypes type;
+	
 	/**
 	 * Checks if two elements are in the same position
+	 * 
 	 * @param pPosition the position to compare
 	 * @return true if the two position are in the same spot, false otherwise
 	 * @throws EntityException 
