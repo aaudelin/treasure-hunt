@@ -55,6 +55,20 @@ public enum EAvailableActions {
 	public static boolean isMovement(char action) {
 		return MOVE_FORWARD.getAction() == action;
 	}
+	
+	/**
+	 * Gets a EAvailableAction according to the char action
+	 * @param action the action to fetch
+	 * @return
+	 */
+	public static EAvailableActions getFromAction(char action) {
+		for (EAvailableActions validAction : EAvailableActions.values()) {
+			if (validAction.getAction() == action) {
+				return validAction;
+			}
+		}
+		return null;
+	}
 
 	@Override
 	public String toString() {
