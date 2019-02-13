@@ -32,5 +32,20 @@ public class PositionFactory {
 
 		return position;
 	}
+	
+	/**
+	 * Creates a position sensor that works with coordinates
+	 * 
+	 * @param x         the x coordinate
+	 * @param y         the y coordinate
+	 * @return a new coordinate position sensor
+	 */
+	public static CoordinatePosition createCoordinatePosition(int x, int y) {
+		CoordinatePosition position = new CoordinatePosition();
+		position.setXCoordinate(x);
+		position.setYCoordinate(y);
+
+		return position;
+	}
 
 }

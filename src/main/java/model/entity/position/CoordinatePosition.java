@@ -26,7 +26,7 @@ public class CoordinatePosition extends APosition {
 
 	public static final String INFO_DELIMITER = " ";
 
-	EAvailableDirection direction = EAvailableDirection.DIRECTION_NORTH;
+	EAvailableDirection direction = null;
 
 	int xCoordinate = 0;
 

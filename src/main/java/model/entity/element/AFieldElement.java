@@ -19,6 +19,10 @@ public abstract class AFieldElement {
 	
 	EAvailableEntityTypes type;
 	
+	public AFieldElement(APosition pPosition) {
+		this.position = pPosition;
+	}
+	
 	/**
 	 * Checks if two elements are in the same position
 	 * 
@@ -51,4 +55,28 @@ public abstract class AFieldElement {
 		return this.position.isIncludedInField(field);
 	}
 
+	public APosition getPosition() {
+		return position;
+	}
+
+	public void setPosition(APosition position) {
+		this.position = position;
+	}
+
+	public boolean isCanMove() {
+		return canMove;
+	}
+
+	public void setCanMove(boolean canMove) {
+		this.canMove = canMove;
+	}
+
+	public EAvailableEntityTypes getType() {
+		return type;
+	}
+
+	public void setType(EAvailableEntityTypes type) {
+		this.type = type;
+	}
+	
 }
