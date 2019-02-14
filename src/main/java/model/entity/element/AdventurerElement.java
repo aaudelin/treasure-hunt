@@ -2,6 +2,7 @@ package model.entity.element;
 
 import java.util.List;
 
+import exception.EntityException;
 import model.common.EAvailableEntityTypes;
 import model.entity.order.AOrder;
 import model.entity.position.APosition;
@@ -29,6 +30,12 @@ public class AdventurerElement extends AFieldElement {
 		super(pPosition);
 		this.canMove = true;
 		this.type = EAvailableEntityTypes.TYPE_ADVENTURER;
+	}
+	
+	@Override
+	public APosition computeNextPosition(AOrder order) throws EntityException {
+		return position.computePositionFromOrder(order);
+		
 	}
 	
 	public List<AOrder> getOrders() {

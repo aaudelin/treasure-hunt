@@ -33,17 +33,6 @@ public class TreasureHuntFileReadService {
 	public static TreasureHuntFileReadService getInstance() {
 		return instance;
 	}
-	
-	/**
-	 * Parse a file line and split it
-	 * @param line the line to read
-	 * @return a list of element
-	 */
-	private List<String> parseLine(String line) {
-		return Arrays.stream(line.split(TreasureHuntFileReadService.FILE_FIELD_DELIMITER))
-				.map((info) -> info.trim())
-				.collect(Collectors.toList());
-	}
 
 	/**
 	 * Create an according field according a string line
@@ -53,6 +42,11 @@ public class TreasureHuntFileReadService {
 	 * @throws FileReadException
 	 */
 	public AField createField(String fieldLine) throws FileReadException {
+		// Skip empty line
+		if (fieldLine.isBlank()) {
+			return null;
+		}
+		
 		List<String> fieldInfos = this.parseLine(fieldLine);
 		
 		// If the line is not a valid type skip to the next line
@@ -85,6 +79,11 @@ public class TreasureHuntFileReadService {
 	 * @throws EntityException
 	 */
 	public AFieldElement createFieldElement(String lineInfos) throws FileReadException, EntityException {
+		// Skip empty line
+		if (lineInfos.isBlank()) {
+			return null;
+		}
+		
 		List<String> elementInfos = this.parseLine(lineInfos);
 		
 		if(elementInfos.isEmpty()) {
@@ -188,6 +187,17 @@ public class TreasureHuntFileReadService {
 			throw new FileReadException("Impossible to read mountain coordinates from file : illegal file format");
 		}
 		return FieldElementFactory.createAdventurer(name, xCoordinate, yCoordinate, direction, orders);
+	}
+	
+	/**
+	 * Parse a file line and split it
+	 * @param line the line to read
+	 * @return a list of element
+	 */
+	private List<String> parseLine(String line) {
+		return Arrays.stream(line.split(TreasureHuntFileReadService.FILE_FIELD_DELIMITER))
+				.map((info) -> info.trim())
+				.collect(Collectors.toList());
 	}
 
 }

@@ -39,8 +39,9 @@ public abstract class AFieldElement {
 	 * 
 	 * @param order the order to execute
 	 * @return the next estimated position
+	 * @throws EntityException 
 	 */
-	public APosition computeNextPosition(AOrder order) {
+	public APosition computeNextPosition(AOrder order) throws EntityException {
 		return this.position;
 	}
 	
