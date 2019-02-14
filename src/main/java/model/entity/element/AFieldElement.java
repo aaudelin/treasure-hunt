@@ -64,7 +64,7 @@ public abstract class AFieldElement {
 		this.position = position;
 	}
 
-	public boolean isCanMove() {
+	public boolean canMove() {
 		return canMove;
 	}
 

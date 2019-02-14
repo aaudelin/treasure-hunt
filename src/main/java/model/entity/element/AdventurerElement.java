@@ -38,6 +38,56 @@ public class AdventurerElement extends AFieldElement {
 		
 	}
 	
+	/**
+	 * Moves an adventurer
+	 * @throws EntityException 
+	 */
+	public void move() throws EntityException {
+		if (!this.hasRemainingOrders()) {
+			return;
+		}
+		APosition nextPosition = position.computePositionFromOrder(this.orders.get(0));
+		this.position = nextPosition;
+		this.orders.remove(0);
+	}
+	
+	/**
+	 * Do not move an adventurer
+	 * It will skip to the next order
+	 * @throws EntityException 
+	 */
+	public void doNotMove() throws EntityException {
+		if (!this.hasRemainingOrders()) {
+			return;
+		}
+		this.orders.remove(0);
+	}
+	
+	/**
+	 * Do not move an adventurer
+	 * It will wait for availability
+	 * @throws EntityException 
+	 */
+	public void waitAvailability() throws EntityException {
+		return;
+	}
+	
+	/**
+	 * Indicates whether an adventurer has remaining orders to execute
+	 * 
+	 * @return true if some orders must be executed, false otherwise
+	 */
+	public boolean hasRemainingOrders() {
+		return !this.orders.isEmpty();
+	}
+	
+	/**
+	 * Add a treasure count to the count of the adventurer
+	 */
+	public void pickUpTreasure() {
+		this.treasureCount += 1;
+	}
+	
 	public List<AOrder> getOrders() {
 		return orders;
 	}

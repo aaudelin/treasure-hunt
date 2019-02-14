@@ -4,16 +4,16 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import model.entity.field.CoordinateField;
+import model.entity.field.MadreDeDiosField;
 
 public class FieldFactoryTest {
 
 	@Test
-	public void testCreateCoordinateField() {
+	public void testCreateMadreDeDiosField() {
 		int x = 8;
 		int y = 9;
 		int min = 0;
-		CoordinateField field = FieldFactory.createCoordinateField(x, y);
+		MadreDeDiosField field = FieldFactory.createMadreDeDiosField(x, y);
 
 		assertEquals(field.getMinXCoordinate(), min);
 		assertEquals(field.getMinYCoordinate(), min);

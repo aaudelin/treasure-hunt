@@ -1,6 +1,6 @@
 package helper.factory;
 
-import model.entity.field.CoordinateField;
+import model.entity.field.MadreDeDiosField;
 
 /**
  * 
@@ -10,14 +10,14 @@ import model.entity.field.CoordinateField;
 public class FieldFactory {
 
 	/**
-	 * Create a coordinate field
+	 * Create a madre de dios field
 	 * 
 	 * @param xPos max x position
 	 * @param yPos max y position
 	 * @return the field with its positions
 	 */
-	public static CoordinateField createCoordinateField(int xPos, int yPos) {
-		CoordinateField field = new CoordinateField();
+	public static MadreDeDiosField createMadreDeDiosField(int xPos, int yPos) {
+		MadreDeDiosField field = new MadreDeDiosField();
 		field.setMinXCoordinate(0);
 		field.setMinYCoordinate(0);
 		field.setMaxXCoordinate(xPos);

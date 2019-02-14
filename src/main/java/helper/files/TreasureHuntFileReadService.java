@@ -67,7 +67,7 @@ public class TreasureHuntFileReadService {
 			throw new FileReadException("Impossible to read field coordinates from file : illegal file format "+fieldLine);
 		}
 
-		return FieldFactory.createCoordinateField(xCoordinate, yCoordinate);
+		return FieldFactory.createMadreDeDiosField(xCoordinate, yCoordinate);
 	}
 
 	/**

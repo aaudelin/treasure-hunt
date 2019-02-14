@@ -61,7 +61,7 @@ public class CoordinatePositionTest {
 	@Test
 	public void testIsIncludedInFile() throws Exception {
 		CoordinatePosition position = PositionFactory.createCoordinatePosition(6, 15, 'E');
-		AField field = FieldFactory.createCoordinateField(30, 40);
+		AField field = FieldFactory.createMadreDeDiosField(30, 40);
 		boolean result = position.isIncludedInField(field);
 		
 		assertTrue(result);
@@ -70,7 +70,7 @@ public class CoordinatePositionTest {
 	@Test
 	public void testIsIncludedInFileLimit() throws Exception {
 		CoordinatePosition position = PositionFactory.createCoordinatePosition(6, 15, 'E');
-		AField field = FieldFactory.createCoordinateField(6, 15);
+		AField field = FieldFactory.createMadreDeDiosField(6, 15);
 		boolean result = position.isIncludedInField(field);
 		
 		assertTrue(result);
@@ -79,7 +79,7 @@ public class CoordinatePositionTest {
 	@Test
 	public void testNotIsIncludedInFile() throws Exception {
 		CoordinatePosition position = PositionFactory.createCoordinatePosition(6, 15, 'E');
-		AField field = FieldFactory.createCoordinateField(5, 5);
+		AField field = FieldFactory.createMadreDeDiosField(5, 5);
 		boolean result = position.isIncludedInField(field);
 		
 		assertFalse(result);

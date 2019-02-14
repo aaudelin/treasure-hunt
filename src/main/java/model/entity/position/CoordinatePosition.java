@@ -8,7 +8,7 @@ import helper.factory.PositionFactory;
 import model.common.EAvailableActions;
 import model.common.EAvailableDirection;
 import model.entity.field.AField;
-import model.entity.field.CoordinateField;
+import model.entity.field.MadreDeDiosField;
 import model.entity.order.AOrder;
 import model.entity.order.MoveOrder;
 import model.entity.order.RotateOrder;
@@ -61,11 +61,11 @@ public class CoordinatePosition extends APosition {
 	
 	@Override
 	public boolean isIncludedInField(AField field) throws PositionException {
-		if (!(field instanceof CoordinateField)) {
+		if (!(field instanceof MadreDeDiosField)) {
 			throw new PositionException(
 					"Invalid field type not handled by the position : " + field.getClass().getName());
 		}
-		CoordinateField cField = (CoordinateField) field;
+		MadreDeDiosField cField = (MadreDeDiosField) field;
 		return this.getXCoordinate() >= cField.getMinXCoordinate() 
 				&& this.getXCoordinate() <= cField.getMaxXCoordinate()
 				&& this.getYCoordinate() >= cField.getMinYCoordinate() 

@@ -14,7 +14,7 @@ import model.entity.element.AdventurerElement;
 import model.entity.element.MountainElement;
 import model.entity.element.TreasureElement;
 import model.entity.field.AField;
-import model.entity.field.CoordinateField;
+import model.entity.field.MadreDeDiosField;
 import model.entity.order.MoveOrder;
 import model.entity.order.RotateOrder;
 import model.entity.position.CoordinatePosition;
@@ -68,7 +68,7 @@ public class TreasureHuntFileReadServiceTest {
 	@Test
 	public void testValidFormatForField() throws Exception {
 		TreasureHuntFileReadService instance = TreasureHuntFileReadService.getInstance();
-		CoordinateField field = (CoordinateField) instance.createField("C - 15 - 18");
+		MadreDeDiosField field = (MadreDeDiosField) instance.createField("C - 15 - 18");
 		
 		assertEquals(field.getMaxXCoordinate(), 15);
 		assertEquals(field.getMaxYCoordinate(), 18);
@@ -80,7 +80,7 @@ public class TreasureHuntFileReadServiceTest {
 	@Test
 	public void testValidFormatForFieldIgnoreWhitespaces() throws Exception {
 		TreasureHuntFileReadService instance = TreasureHuntFileReadService.getInstance();
-		CoordinateField field = (CoordinateField) instance.createField(" C -15- 18");
+		MadreDeDiosField field = (MadreDeDiosField) instance.createField(" C -15- 18");
 		
 		assertEquals(field.getMaxXCoordinate(), 15);
 		assertEquals(field.getMaxYCoordinate(), 18);
