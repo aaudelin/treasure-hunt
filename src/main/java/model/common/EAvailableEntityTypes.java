@@ -26,5 +26,14 @@ public enum EAvailableEntityTypes {
 		return type;
 	}
 	
+	public static EAvailableEntityTypes getFromType(char type) {
+		for (EAvailableEntityTypes validType : EAvailableEntityTypes.values()) {
+			if (validType.getType() == type) {
+				return validType;
+			}
+		}
+		return null;
+	}
+	
 	
 }

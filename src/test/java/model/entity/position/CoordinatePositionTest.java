@@ -1,11 +1,15 @@
 package model.entity.position;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import helper.factory.FieldFactory;
 import helper.factory.PositionFactory;
 import model.common.EAvailableDirection;
+import model.entity.field.AField;
 import model.entity.order.MoveOrder;
 import model.entity.order.RotateOrder;
 
@@ -53,6 +57,58 @@ public class CoordinatePositionTest {
 		assertEquals(7, newPosition.getXCoordinate());
 
 	}
-
-
+	
+	@Test
+	public void testIsIncludedInFile() throws Exception {
+		CoordinatePosition position = PositionFactory.createCoordinatePosition(6, 15, 'E');
+		AField field = FieldFactory.createCoordinateField(30, 40);
+		boolean result = position.isIncludedInField(field);
+		
+		assertTrue(result);
+	}
+	
+	@Test
+	public void testIsIncludedInFileLimit() throws Exception {
+		CoordinatePosition position = PositionFactory.createCoordinatePosition(6, 15, 'E');
+		AField field = FieldFactory.createCoordinateField(6, 15);
+		boolean result = position.isIncludedInField(field);
+		
+		assertTrue(result);
+	}
+	
+	@Test
+	public void testNotIsIncludedInFile() throws Exception {
+		CoordinatePosition position = PositionFactory.createCoordinatePosition(6, 15, 'E');
+		AField field = FieldFactory.createCoordinateField(5, 5);
+		boolean result = position.isIncludedInField(field);
+		
+		assertFalse(result);
+	}
+	
+	@Test
+	public void testSamePosition() throws Exception {
+		CoordinatePosition position1 = PositionFactory.createCoordinatePosition(6, 15, 'E');
+		CoordinatePosition position2 = PositionFactory.createCoordinatePosition(6, 15, 'E');
+		boolean result = position1.isAtSamePosition(position2);
+		
+		assertTrue(result);
+	}
+	
+	@Test
+	public void testSamePositionNotDirection() throws Exception {
+		CoordinatePosition position1 = PositionFactory.createCoordinatePosition(6, 15, 'E');
+		CoordinatePosition position2 = PositionFactory.createCoordinatePosition(6, 15, 'W');
+		boolean result = position1.isAtSamePosition(position2);
+		
+		assertTrue(result);
+	}
+	
+	@Test
+	public void testNotSamePosition() throws Exception {
+		CoordinatePosition position1 = PositionFactory.createCoordinatePosition(6, 14, 'E');
+		CoordinatePosition position2 = PositionFactory.createCoordinatePosition(6, 15, 'E');
+		boolean result = position1.isAtSamePosition(position2);
+		
+		assertFalse(result);
+	}
 }

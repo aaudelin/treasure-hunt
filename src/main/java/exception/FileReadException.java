@@ -6,11 +6,11 @@ package exception;
  * @author aaudelin
  *
  */
-public class CoordinateFileReadException extends Exception {
+public class FileReadException extends Exception {
 
 	private static final long serialVersionUID = -4901828751119584073L;
 
-	public CoordinateFileReadException(String message) {
+	public FileReadException(String message) {
 		super(message);
 	}
 
