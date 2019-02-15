@@ -33,9 +33,22 @@ public class AdventurerElement extends AFieldElement {
 	}
 	
 	@Override
-	public APosition computeNextPosition(AOrder order) throws EntityException {
+	public APosition computeNextPositionFromOrder(AOrder order) throws EntityException {
 		return position.computePositionFromOrder(order);
 		
+	}
+	
+	/**
+	 * Find the next position according to the first order of the adventurer
+	 * 
+	 * @return the estimated new position
+	 * @throws EntityException
+	 */
+	public APosition findNextPosition() throws EntityException {
+		if (!this.hasRemainingOrders()) {
+			return this.position;
+		}
+		return this.computeNextPositionFromOrder(this.orders.get(0));	
 	}
 	
 	/**
@@ -111,6 +124,5 @@ public class AdventurerElement extends AFieldElement {
 	public void setTreasureCount(int treasureCount) {
 		this.treasureCount = treasureCount;
 	}
-
 
 }

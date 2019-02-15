@@ -55,11 +55,22 @@ public class MadreDeDiosField extends AField {
 			AFieldElement alreadyExistingElement = this.findElementAtPosition(nextAdvPosition);
 			
 			if (alreadyExistingElement instanceof MountainElement) {
+				// If the next position is a mountain do not move and skip to next order
 				adventurer.doNotMove();
 			} else if (alreadyExistingElement instanceof AdventurerElement) {
-				// TODO Handle conflicts
-				adventurer.waitAvailability();
+				// If it is an adventurer handle conflicts and move both or wait first the other to free the space
+				AdventurerElement alreadyExistingAdv = (AdventurerElement) alreadyExistingElement;
+				APosition existingAdvNextPos = alreadyExistingAdv.findNextPosition();
+				
+				if (existingAdvNextPos.isAtSamePosition(adventurer.getPosition())) {
+					alreadyExistingAdv.move();
+					adventurer.move();
+				} else {
+					adventurer.waitAvailability();
+				}
+				
 			} else if (alreadyExistingElement instanceof TreasureElement) {
+				// If it is a treasure pick it up
 				TreasureElement treasure = (TreasureElement) alreadyExistingElement;
 				if (treasure.pickTreasure()) {
 					adventurer.pickUpTreasure();
