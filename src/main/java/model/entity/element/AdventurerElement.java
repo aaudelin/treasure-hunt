@@ -101,6 +101,19 @@ public class AdventurerElement extends AFieldElement {
 		this.treasureCount += 1;
 	}
 	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append(this.getType().getType())
+			.append(FIELD_DELIMITOR)
+			.append(this.getName())
+			.append(FIELD_DELIMITOR)
+			.append(this.getPosition().toString())
+			.append(FIELD_DELIMITOR)
+			.append(this.getTreasureCount());
+		return builder.toString();
+	}
+	
 	public List<AOrder> getOrders() {
 		return orders;
 	}

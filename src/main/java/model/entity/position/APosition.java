@@ -10,6 +10,8 @@ import model.entity.order.AOrder;
  *
  */
 public abstract class APosition {
+	
+	public static final String FIELD_DELIMITOR = " - ";
 
 	/**
 	 * Computes the next position of the mower according to the given order

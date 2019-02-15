@@ -15,5 +15,14 @@ public class MountainElement extends AFieldElement {
 		this.canMove = false;
 		this.type = EAvailableEntityTypes.TYPE_MOUNTAIN;
 	}
+	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append(this.getType().getType())
+			.append(FIELD_DELIMITOR)
+			.append(this.getPosition().toString());
+		return builder.toString();
+	}
 
 }

@@ -115,6 +115,17 @@ public class MadreDeDiosField extends AField {
 		return null;
 		
 	}
+	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append(this.getType().getType())
+			.append(FIELD_DELIMITOR)
+			.append(this.getMaxXCoordinate())
+			.append(FIELD_DELIMITOR)
+			.append(this.getMaxYCoordinate());
+		return builder.toString();
+	}
 
 	public int getMinXCoordinate() {
 		return minXCoordinate;

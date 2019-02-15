@@ -34,6 +34,17 @@ public class TreasureElement extends AFieldElement {
 		}
 		return false;
 	}
+	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append(this.getType().getType())
+			.append(FIELD_DELIMITOR)
+			.append(this.getPosition().toString())
+			.append(FIELD_DELIMITOR)
+			.append(this.getQuantity());
+		return builder.toString();
+	}
 
 	public int getQuantity() {
 		return quantity;

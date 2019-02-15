@@ -15,6 +15,8 @@ import model.entity.element.AFieldElement;
  */
 public abstract class AField {
 	
+	public static final String FIELD_DELIMITOR = " - ";
+	
 	EAvailableEntityTypes type = EAvailableEntityTypes.TYPE_MAP;
 	
 	List<AFieldElement> fieldElements;
@@ -37,6 +39,14 @@ public abstract class AField {
 		}
 		
 		this.fieldElements.add(element);
+		return fieldElements;
+	}
+
+	public EAvailableEntityTypes getType() {
+		return type;
+	}
+
+	public List<AFieldElement> getFieldElements() {
 		return fieldElements;
 	}
 	

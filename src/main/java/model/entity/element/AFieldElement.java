@@ -13,6 +13,8 @@ import model.entity.position.APosition;
  */
 public abstract class AFieldElement {
 	
+	public static final String FIELD_DELIMITOR = " - ";
+	
 	APosition position;
 	
 	boolean canMove = false;

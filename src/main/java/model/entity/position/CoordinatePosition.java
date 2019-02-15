@@ -24,8 +24,6 @@ import model.entity.order.RotateOrder;
  */
 public class CoordinatePosition extends APosition {
 
-	public static final String INFO_DELIMITER = " ";
-
 	EAvailableDirection direction = null;
 
 	int xCoordinate = 0;
@@ -139,10 +137,12 @@ public class CoordinatePosition extends APosition {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append(this.xCoordinate);
-		builder.append(INFO_DELIMITER);
+		builder.append(FIELD_DELIMITOR);
 		builder.append(this.yCoordinate);
-		builder.append(INFO_DELIMITER);
-		builder.append(this.direction);
+		if (null != this.direction) {
+			builder.append(FIELD_DELIMITOR);
+			builder.append(this.direction.getDirection());
+		}
 		return builder.toString();
 	}
 
