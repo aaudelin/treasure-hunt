@@ -22,12 +22,7 @@ public class MadreDeDiosField extends AField {
 
 	int maxYCoordinate = 0;
 	
-	/**
-	 * Execute a round for all elements available in the field
-	 * 
-	 * @return true if a next round should be executed
-	 * @throws EntityException 
-	 */
+	@Override
 	public boolean executeNextRound() throws EntityException {
 		boolean needsNextRound = false;
 		

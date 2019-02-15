@@ -22,6 +22,14 @@ public abstract class AField {
 	List<AFieldElement> fieldElements;
 	
 	/**
+	 * Execute a round for all elements available in the field
+	 * 
+	 * @return true if a next round should be executed
+	 * @throws EntityException 
+	 */
+	public abstract boolean executeNextRound() throws EntityException;
+	
+	/**
 	 * Add an element to the field
 	 * @param element the element to add
 	 * @return the field's list of elements
