@@ -37,7 +37,7 @@ public abstract class AFieldElement {
 	}
 	
 	/**
-	 * Computes the next position of the mower according to the given order
+	 * Computes the next position according to the given order
 	 * 
 	 * @param order the order to execute
 	 * @return the next estimated position

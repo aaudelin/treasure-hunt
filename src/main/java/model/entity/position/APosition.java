@@ -14,7 +14,7 @@ public abstract class APosition {
 	public static final String FIELD_DELIMITOR = " - ";
 
 	/**
-	 * Computes the next position of the mower according to the given order
+	 * Computes the next position according to the given order
 	 * 
 	 * @param order the order to execute
 	 * @return the next estimated position
