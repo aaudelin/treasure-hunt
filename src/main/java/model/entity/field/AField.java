@@ -40,6 +40,14 @@ public abstract class AField {
 			this.fieldElements = new ArrayList<AFieldElement>();
 		}
 		
+		if (null == element) {
+			return this.fieldElements;
+		}
+		
+		if (!element.isIncludedInField(this)) {
+			throw new FieldException("The element is not included in the field");
+		}
+		
 		for (AFieldElement elementItem : fieldElements) {
 			if (elementItem.isAtSamePosition(element.getPosition())) {
 				throw new FieldException("An element is already at the requested position");
