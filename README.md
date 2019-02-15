@@ -5,7 +5,7 @@ This program is available to Java 11 or above
 
 ## Compile process
 ```bash
-git clone https://github.com/aaudelin/treasure-hunt.git`
+git clone https://github.com/aaudelin/treasure-hunt.git
 cd treasure-hunt
 mvn install
 ```
