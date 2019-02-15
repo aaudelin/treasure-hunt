@@ -39,12 +39,19 @@ public class MadreDeDiosField extends AField {
 			
 			if (!(element instanceof AdventurerElement)) {
 				// If the element is not an adventurer it is not handled yet
-				System.out.println("Movable element not handled yet");
+				System.out.println("Movable element type not handled yet");
+				continue;
+			}
+			
+			AdventurerElement adventurer = (AdventurerElement) element;
+			
+			if (!adventurer.hasRemainingOrders()) {
+				// If the adventurer has no next run assume no other turn must be made
+				needsNextRound = false;
 				continue;
 			}
 			needsNextRound = true;
-			AdventurerElement adventurer = (AdventurerElement) element;
-			APosition nextAdvPosition = adventurer.getPosition();
+			APosition nextAdvPosition = adventurer.findNextPosition();
 			
 			// If the next position is out do not move
 			if (!nextAdvPosition.isIncludedInField(this)) {
@@ -52,9 +59,19 @@ public class MadreDeDiosField extends AField {
 				continue;
 			}
 			
+			// If the position is the same spot just move (example for rotation)
+			if (nextAdvPosition.isAtSamePosition(adventurer.getPosition())) {
+				adventurer.move();
+				continue;
+			}
+			
+			
 			AFieldElement alreadyExistingElement = this.findElementAtPosition(nextAdvPosition);
 			
-			if (alreadyExistingElement instanceof MountainElement) {
+			if (null == alreadyExistingElement) {
+				// If it is an free space just go on it
+				adventurer.move();
+			} else if (alreadyExistingElement instanceof MountainElement) {
 				// If the next position is a mountain do not move and skip to next order
 				adventurer.doNotMove();
 			} else if (alreadyExistingElement instanceof AdventurerElement) {
@@ -71,11 +88,12 @@ public class MadreDeDiosField extends AField {
 				
 			} else if (alreadyExistingElement instanceof TreasureElement) {
 				// If it is a treasure pick it up
+				adventurer.move();
 				TreasureElement treasure = (TreasureElement) alreadyExistingElement;
 				if (treasure.pickTreasure()) {
 					adventurer.pickUpTreasure();
 				}
-			}
+			} 
 		}
 		
 		return needsNextRound;

@@ -21,7 +21,7 @@ public class AdventurerElement extends AFieldElement {
 	private List<AOrder> orders;
 	
 	public AdventurerElement(APosition pPosition, String pName, List<AOrder> pOrders) {
-		super(pPosition);
+		this(pPosition);
 		this.name = pName;
 		this.orders = pOrders;
 	}
